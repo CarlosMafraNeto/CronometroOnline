@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mafra Timer </title>
+    <style>
+        body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            margin: 40px;
+            flex-direction: column;
+        }
+        .start{
+            background-color: rgb(52, 11, 163);
+            border-radius: 20%;
+            text-transform: uppercase;
+            font-style: oblique;
+            border: none ;
+            color: white ;
+            padding: 10px 10px ;
+            box-shadow: 2px 2px rgb(96, 87, 218);
+            cursor: pointer;
+            
+        }
+        .Stop{
+            background-color: purple;
+            border-radius: 20%;
+            text-transform: uppercase;
+            font-style: oblique;
+            border: none ;
+            color: white ;
+            padding: 10px 10px ;
+            box-shadow: 2px 2px rgb(181, 87, 218);
+            cursor: pointer;
+        }
+        div{
+            align-items: center;
+            box
+        }
+
+        .start:hover{
+        opacity: 0.7 ;
+        transition: 0.5;
+        }
+
+        .Stop:hover{
+            opacity: 0.7;
+            transition: 0.5;
+        }
+        .Title{
+        color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input type="date">
+        <button class="start" onclick="iniciar()">Começar</button>
+        <button class="Stop">Resetar</button>
+        <h1 class="Title">
+            Hello
+        </h1>
+    </div>
+
+    <script>
+        const second = 1000;
+        const minute = 1000 * seconds;
+        const hour = minutes * 60
+        const day = hour * 24
+
+        function iniciar() {
+        const date = document.querySelector("input").value;
+        let finalDate = new Date(date).getTime();
+        let now = new Date().getTime();
+        let diff = finalDate - now;
+
+        setInterval(timer, 1000)
+
+        }
+        function timer() {
+        const days = Math.floor(diff / days);
+        const hours = Math.floor((diff % days) / hour)+ 3;
+        const minutes = Math.floor((diff % hour) / minute)
+        const seconds = Math.floor((diff % second) / second)
+
+        document.querySelector("h1").innerText = `${days} D ${hours} h ${minutes} min ${seconds}`
+     
+        }
+    </script>
+</body>
+</html>
